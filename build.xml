@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="plg_system_nncleanhead" basedir="." default="build">
+
+	<target name="build">
+		<if>
+			<not>
+				<isset property="path" />
+			</not>
+			<then>
+				<input message="Please enter a Path:" propertyName="path" />
+			</then>
+		</if>
+
+		<property name="tmp" value="${project.basedir}/_tmp" />
+
+		<exec command="git rev-list --count HEAD" dir="." outputProperty="revision" />
+
+		<property name="zip" value="${path}${phing.project.name}.rev.${revision}.zip" />
+
+		<delete dir="${tmp}" quiet="true" />
+		<delete file="${zip}" quiet="true" />
+
+		<copy todir="${tmp}">
+			<fileset dir=".">
+				<include name="**" />
+				<exclude name="build.xml" />
+				<exclude name=".**" />
+			</fileset>
+			<filterchain>
+				<replacetokens>
+					<token key="REVISION" value="rev ${revision}" />
+				</replacetokens>
+			</filterchain>
+		</copy>
+
+		<zip basedir="${tmp}" destfile="${zip}" />
+
+		<delete dir="${tmp}" quiet="true" />
+	</target>
+
+</project>
