@@ -16,12 +16,11 @@ defined('_JEXEC') or die;
  */
 class plgSystemNNCleanhead extends JPlugin
 {
-	protected $app;
-
 	public function onBeforeCompileHead()
 	{
+		$app = JFactory::getApplication();
 		$document = JFactory::getDocument();
-		if($this->app->isSite() == false)
+		if($app->isSite() == false)
 		{
 			return false;
 		}
