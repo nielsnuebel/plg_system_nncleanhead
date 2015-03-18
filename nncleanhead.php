@@ -2,8 +2,8 @@
 /**
  * @version 1.0.0
  * @package NNCleanhead
- * @copyright Copyright (c) 2009 - 2015 Niels Nübel
- * @license GNU General Public License version 2 or later;
+ * @copyright 2015 Niels Nübel
+ * @license This software is licensed under the MIT license: http://opensource.org/licenses/MIT
  * @link http://www.niels-nuebel.de
  */
 
@@ -16,11 +16,12 @@ defined('_JEXEC') or die;
  */
 class plgSystemNNCleanhead extends JPlugin
 {
+	protected $app;
+
 	public function onBeforeCompileHead()
 	{
-		$app = JFactory::getApplication();
 		$document = JFactory::getDocument();
-		if($app->isSite() == false)
+		if($this->app->isSite() == false)
 		{
 			return false;
 		}
@@ -31,7 +32,7 @@ class plgSystemNNCleanhead extends JPlugin
 			$fnjs = $this->params->get('fnjs','');
 			if (trim($fnjs) != '')
 			{
-				$filesjs = explode(',', $fnjs);
+				$filesjs = explode("\n", str_replace("\r", '', $fnjs));
 				if ($this->params->get('widgetkitjquery',0))        $filesjs[] = 'media/widgetkit/js/jquery.js';
 				if ($this->params->get('jui-jquery',0))             $filesjs[] = 'media/jui/js/jquery.min.js';
 				if ($this->params->get('jui-jquery-migrate',0))     $filesjs[] = 'media/jui/js/jquery-migrate.min.js';
@@ -87,7 +88,7 @@ class plgSystemNNCleanhead extends JPlugin
 			$fncss = $this->params->get('fncss','');
 			if (trim($fncss) != '')
 			{
-				$filescss = explode(',', $fncss);
+				$filescss = explode("\n", str_replace("\r", '', $fncss));
 				$styleSheets = array();
 
 				foreach($document->_styleSheets as $name => $details)
