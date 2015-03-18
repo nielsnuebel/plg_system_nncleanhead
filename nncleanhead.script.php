@@ -2,8 +2,8 @@
 /**
  * @version 1.0.0
  * @package NNCleanhead
- * @copyright Copyright (c) 2009 - 2015 Niels Nübel
- * @license GNU General Public License version 2 or later;
+ * @copyright 2015 Niels Nübel
+ * @license This software is licensed under the MIT license: http://opensource.org/licenses/MIT
  * @link http://www.niels-nuebel.de
  */
 

@@ -4,7 +4,7 @@
     <author>Niels Nübel</author>
     <creationDate>17 March 2015</creationDate>
     <copyright>Copyright (c) 2009 - 2015 Niels Nübel</copyright>
-    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
     <authorEmail>info@niels-nuebel.de</authorEmail>
     <authorUrl>www.niels-nuebel.de</authorUrl>
     <version>1.0.0</version>
@@ -47,7 +47,7 @@
                         label="PLG_SYSTEM_NNCLEANHEAD_FNJS_LABEL"
                         description="PLG_SYSTEM_NNCLEANHEAD_FNJS_LABEL"
                         cols="30"
-                        default="mootools-core.js,caption.js,media/jui/js/bootstrap.min.js"
+                        default="demo.js"
                         rows="4"
                         />
 
