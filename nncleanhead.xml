@@ -136,6 +136,12 @@
                     <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
+                <field name="skiptemplate" type="templatestyle"
+                       client="site"
+                       description="PLG_SYSTEM_NNCLEANHEAD_SKIPTEMPLATE_LABEL"
+                       label="PLG_SYSTEM_NNCLEANHEAD_SKIPTEMPLATE_LABEL" >
+                    <option value="">JOPTION_USE_DEFAULT</option>
+                </field>
             </fieldset>
         </fields>
     </config>

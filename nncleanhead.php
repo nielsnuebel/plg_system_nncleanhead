@@ -25,6 +25,11 @@ class plgSystemNNCleanhead extends JPlugin
 		{
 			return false;
 		}
+		elseif($this->app->isSite() == true)
+		{
+			if($this->app->getTemplate('template')->id == $this->params->get('skiptemplate',''))
+				return false;
+		}
 
 		// disable js
 		if ( $this->params->get('disablejs',false) )
