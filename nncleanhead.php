@@ -1,6 +1,6 @@
 <?php
 /**
- * @version 1.0.0
+ * @version 1.0.1
  * @package NNCleanhead
  * @copyright 2015 Niels Nübel
  * @license This software is licensed under the MIT license: http://opensource.org/licenses/MIT
@@ -63,6 +63,7 @@ class plgSystemNNCleanhead extends JPlugin
 					if ($add) $scripts[$name] = $details;
 				}
 
+				//TODO-NIELS Link path wird mit / vorne gerendert
 				$document->_scripts = $scripts;
 			}
 		}
@@ -113,6 +114,14 @@ class plgSystemNNCleanhead extends JPlugin
 
 				$document->_styleSheets = $styleSheets;
 			}
+		}
+
+		// disable caption
+		if ($this->params->get('caption',0) && isset($document->_script['text/javascript']))
+		{
+			$document->_script['text/javascript'] = str_replace("jQuery(window).on('load',  function() {
+				new JCaption('img.caption');
+			});",'',$document->_script['text/javascript']);
 		}
 	}
 }
